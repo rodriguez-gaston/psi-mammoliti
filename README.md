@@ -92,6 +92,8 @@ Incluye:
 
 ## Screenshots
 
+<img src="https://github.com/user-attachments/assets/dec054e8-6dd1-40d1-8867-5cb7703649f9" width="50%">
+<img src="https://github.com/user-attachments/assets/a1e4dec2-d742-4a5a-88ed-1f7c3944c71f" width="50%">
 ![Home](https://github.com/user-attachments/assets/dec054e8-6dd1-40d1-8867-5cb7703649f9)
 ![Availability](https://github.com/user-attachments/assets/a1e4dec2-d742-4a5a-88ed-1f7c3944c71f)
 ![Confirmation](https://github.com/user-attachments/assets/669e3857-fe56-4418-a61a-ecfadb78ed12)
