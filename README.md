@@ -87,3 +87,12 @@ Incluye:
 - Agregar autenticación de pacientes.
 - Integrar APIs con el front.
 - Permitir edición o cancelación de una sesión ya agendada integrando la base de datos.
+
+---
+
+## Screenshots
+
+![Home](https://github.com/user-attachments/assets/dec054e8-6dd1-40d1-8867-5cb7703649f9)
+![Availability](https://github.com/user-attachments/assets/a1e4dec2-d742-4a5a-88ed-1f7c3944c71f)
+![Confirmation](https://github.com/user-attachments/assets/669e3857-fe56-4418-a61a-ecfadb78ed12)
+![Appointment](https://github.com/user-attachments/assets/f8d84e6e-ead4-484f-8676-e3571e1a1f1c)
