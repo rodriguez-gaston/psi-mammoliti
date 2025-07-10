@@ -1,6 +1,7 @@
 # 🧠 Challenge: Gestión de Sesiones para Pacientes
 
 Aplicación para visualizar psicólogos/as disponibles
+<img width="1469" alt="Home desktop" src="https://github.com/user-attachments/assets/97cc2e25-1644-40b4-ab34-84ff75f7c0f0" />
 
 ---
 
