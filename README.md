@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 Challenge: Gestión de Sesiones para Pacientes
 
-## Getting Started
+Aplicación para visualizar psicólogos/as disponibles
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📦 Entrega
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🔗 Repositorio
+[https://github.com/rodriguez-gaston/psi-mammoliti](https://github.com/rodriguez-gaston/psi-mammoliti)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Incluye:
+- Este README con:
+  - Instrucciones de uso
+  - Decisiones técnicas y funcionales
+  - Aclaraciones
+ 
+### 🌐 Deploy en Vercel
+[https://psi-mammoliti.vercel.app/](https://psi-mammoliti.vercel.app/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📄 Documento funcional
 
-To learn more about Next.js, take a look at the following resources:
+### ¿Qué se puede hacer?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Ver psicólogos/as disponibles con nombre y temáticas.
+- Filtrar por temática (ansiedad, pareja, etc).
+- Filtrar por modalidad (online, presencial, mixta).
+- Ver la disponibilidad semanal en formato calendario sencillo.
+- Agendar una sesión (simulada).
+- Confirmar la sesión en un modal adicional.
+- Guardar la sesión agendada en `localStorage` usando Zustand.
+- Mostrar horarios adaptados al huso horario del usuario.
+- UI responsive y mobile-friendly.
+- Mostrar psicólogos con poca disponibilidad.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ¿Qué flujos están cubiertos?
 
-## Deploy on Vercel
+- **Explorar profesionales**
+- **Filtrar por temática y modalidad**
+- **Seleccionar un horario**
+- **Agendar y confirmar la sesión**
+- **Persistencia local de la sesión elegida**
+- **Renderizado adaptado al horario local del usuario**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Decisiones técnicas
+
+- **Next.js 15 App Router** por familiaridad, performance y estructura moderna.
+- **TypeScript** para tipado estricto, especialmente útil en horarios y filtros.
+- **Zustand** como store local liviano + persistencia en `localStorage`.
+- **Luxon** para manejo de timezones entre psicólogo y paciente.
+- **Shadcn/ui** para interfaz accesible, estilizada y rápida de montar (Dialog, Button, etc).
+
+---
+
+## Supuestos
+
+- El calendario del profesional es el mismo cada semana y no era necesario diferenciar la agenda por fecha.
+- Puede haber 3 tipos de modalidad (online, presencial y mixta que puede incluir en su disponibilidad ambas modalidades).
+
+---
+
+## Trade-offs
+
+- No usé librería de calendario o date-pickers y la vista se simplificó en una grilla de días disponibles.
+- Persistencia limitada a `localStorage` (en producción se usaría una DB real).
+- Si bien se podía usar una API routes para simular la búsqueda de profesionales, para una POC usé data local mockeada
+- Los horarios están agrupados y simplificados como `string` (`"10:00"`), lo que puede ser un límite si se requiere precisión con segundos o visibilizar mejor el huso horario.
+
+---
+
+## Cambio de requerimiento
+
+- Para agregar la opción de modalidad, se incluyó el campo `session_type` al `type` de Psychologist para incluir que tipo de sesiones ofrece: "online", "presencial" o "mixto".
+- El tipado de la disponibilidad es dinámica, si `session_type === "mixto"` se incluye a cada horario el campo `mode` para determinar que tipo de sesión es para ese horario.
+- Se agregó un filtro para poder elegir profesionales según la modalidad preferida.
+- Tanto en el selector de horarios como en la confirmación, se ve que tipo de modalidad tiene el turno.
+
+---
+
+## Próximos pasos posibles
+
+- Implementar base de datos de profesionales, disponibilidad y sesiones agendadas.
+- Agregar autenticación de pacientes.
+- Integrar APIs con el front.
+- Permitir edición o cancelación de una sesión ya agendada integrando la base de datos.
