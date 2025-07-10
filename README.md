@@ -89,6 +89,7 @@ Incluye:
 - Agregar autenticación de pacientes.
 - Integrar APIs con el front.
 - Permitir edición o cancelación de una sesión ya agendada integrando la base de datos.
+- Agregar loading y empty states y paginación a la lista de profesionales.
 
 ---
 
