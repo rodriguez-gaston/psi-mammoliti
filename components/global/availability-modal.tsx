@@ -95,8 +95,9 @@ export const AvailabilityModal = ({ psychologist }: AvailabilityModalProps) => {
                 <li>
                   <strong>Hora:</strong> {selected.time}
                 </li>
-                <li>
-                  <strong>Modalidad:</strong> {selected.mode}
+                <li className="capitalize">
+                  <strong>Modalidad:</strong>{" "}
+                  {selected.mode || psychologist.session_type}
                 </li>
                 <li>
                   <strong>Psicóloga:</strong> {psychologist.name}
